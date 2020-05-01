@@ -1,0 +1,31 @@
+﻿@model LaraAbdallah_Homework3.Models.Transaction
+
+@{
+    ViewBag.Title = "Withdrawal";
+}
+
+<h2 style="margin-left:13%;color:#3366cc">Withdrawal</h2>
+<br />
+
+@using (Html.BeginForm("Withdrawal", "Transaction"))
+{
+<fieldset style="border:2px solid #3366cc;padding-top:5% ;padding-bottom:3%;padding-left:10%;margin-left:10%;margin-right:10%">
+    <h4 class="col-sm-2 col-form-label">Amount in $</h4>
+    @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+
+    <button type="submit" class="btn  btn-primary mb-2" style="margin-top: 2% ">Save</button>
+
+</fieldset>
+        if (ViewBag.Message != null)
+        {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewBag.Message');
+            };
+        </script>
+
+        }
+        }
+
+
+

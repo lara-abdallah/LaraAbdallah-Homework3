@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Quickcash";
+}
+
+<h2>Quickcash</h2>
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewBag.Message');
+            };
+        </script>
+
+    }
+    
+

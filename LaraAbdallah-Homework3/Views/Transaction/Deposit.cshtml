@@ -1,0 +1,18 @@
+﻿@model LaraAbdallah_Homework3.Models.Transaction
+@{
+    ViewBag.Title = "Deposit";
+}
+
+    <h2 style="margin-left:13%;color:#3366cc">Deposit</h2>
+
+<br />
+@using (Html.BeginForm("Deposit", "Transaction"))
+{
+
+<fieldset style="border:2px solid #3366cc;padding-top:5% ;padding-bottom:3%;padding-left:10%;margin-left:10%;margin-right:10%">
+    <h4 class="col-sm-2 col-form-label">Amount in $</h4>
+    @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+
+    <button type="submit" class="btn  btn-primary " style="margin-top:2%">Save</button>
+</fieldset>
+    }
