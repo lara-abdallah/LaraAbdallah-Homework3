@@ -16,5 +16,9 @@ namespace LaraAbdallah_Homework3.Models
         public virtual CheckingAccount CheckingAccount { get; set; }
         [Required]
         public int CheckingAccountId { get; set; }
+
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = @"{0:dd\/MM\/yyyy HH:mm}",
+           ApplyFormatInEditMode = true)]
+        public DateTime TransactionDate { get; set; }
     }
-}
+} 
