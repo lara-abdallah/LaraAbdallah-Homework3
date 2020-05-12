@@ -9,6 +9,8 @@ namespace LaraAbdallah_Homework3.Models
 {
     public class CheckingAccount
     {
+      
+
         public int Id { get; set; }
         [Required]
         [StringLength(10)]
@@ -32,7 +34,7 @@ namespace LaraAbdallah_Homework3.Models
         public virtual ApplicationUser user { get; set; }
         [Required]
         public string ApplicationUserId { get; set; }
-
+        public virtual ICollection<Transaction> Transactions { get; set; }
 
     }
 }

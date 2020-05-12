@@ -34,6 +34,26 @@ namespace LaraAbdallah_Homework3.Controllers
             }
             return View(checkingAccount);
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult DetailsForAdmin(int id)
+        {
+            var checkingAccount = db.CheckingAccounts.Find(id);
+            return View("Details", checkingAccount);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult List()
+        {
+            return View(db.CheckingAccounts.ToList());
+        }
+
+        public ActionResult Statement(int id)
+        {
+            var checkingAccount = db.CheckingAccounts.Find(id);
+            return View(checkingAccount.Transactions.ToList());
+        }
+
+       
 
         // GET: CheckingAccounts/Create
         public ActionResult Create()
@@ -57,6 +77,9 @@ namespace LaraAbdallah_Homework3.Controllers
 
             return View(checkingAccount);
         }
+
+
+
 
         // GET: CheckingAccounts/Edit/5
         public ActionResult Edit(int? id)
@@ -88,6 +111,8 @@ namespace LaraAbdallah_Homework3.Controllers
             }
             return View(checkingAccount);
         }
+
+
 
         // GET: CheckingAccounts/Delete/5
         public ActionResult Delete(int? id)
