@@ -258,6 +258,7 @@
     <Content Include="Views\Transaction\BalanceInquiry.cshtml" />
     <Content Include="Views\Transaction\Deposit.cshtml" />
     <Content Include="Views\Transaction\Withdrawal.cshtml" />
+    <Content Include="Views\Transaction\print.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
