@@ -87,5 +87,12 @@ namespace LaraAbdallah_Homework3.Controllers
             }
             return View();
         }
+
+        public ActionResult print()
+        {
+            var list = db.Transactions.ToList();
+            return View();
+        }
+
     }
 }
