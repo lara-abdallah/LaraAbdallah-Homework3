@@ -7,12 +7,12 @@ namespace LaraAbdallah_Homework3.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Transactions", "TransactionDate", c => c.DateTime(nullable: false));
+            DropColumn("dbo.Transactions", "TransactionDate");
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Transactions", "TransactionDate");
+            AddColumn("dbo.Transactions", "TransactionDate", c => c.String());
         }
     }
 }

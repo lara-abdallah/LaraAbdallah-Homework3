@@ -13,7 +13,7 @@ namespace LaraAbdallah_Homework3.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202005112241489_InitialMigration2"; }
+            get { return "202005131244451_InitialMigration2"; }
         }
         
         string IMigrationMetadata.Source

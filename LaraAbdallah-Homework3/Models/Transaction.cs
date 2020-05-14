@@ -17,8 +17,9 @@ namespace LaraAbdallah_Homework3.Models
         [Required]
         public int CheckingAccountId { get; set; }
 
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = @"{0:dd\/MM\/yyyy HH:mm}",
-           ApplyFormatInEditMode = true)]
-        public DateTime TransactionDate { get; set; }
+        [DataType(DataType.DateTime)]
+        public string TransactionDate { get; set; }
+        [Required]
+        public string TansactionSource { get; set; }
     }
 } 

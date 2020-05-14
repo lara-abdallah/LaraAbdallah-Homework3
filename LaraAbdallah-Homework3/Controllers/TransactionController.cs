@@ -37,7 +37,9 @@ namespace LaraAbdallah_Homework3.Controllers
         public ActionResult BalanceInquiry() {
             var Id = User.Identity.GetUserId();
             var CheckingAccount = db.CheckingAccounts.Where(x => x.ApplicationUserId == Id).First();
-            ViewBag.Message = "Your Balance is $" + CheckingAccount.Balance;
+            ViewBag.Message = "Account #: " + CheckingAccount.AccountNumber;
+            ViewBag.Message1 = "Name: " + CheckingAccount.Name;
+            ViewBag.Message2 = "Your Balance is: $" + CheckingAccount.Balance;
              return View();
         }
 
@@ -57,6 +59,8 @@ namespace LaraAbdallah_Homework3.Controllers
 
             db.Transactions.Add(model);
             CheckingAccount.Balance += model.Amount;
+            model.TransactionDate = DateTime.Now.ToString();
+            model.TansactionSource = "Own Account";
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
@@ -80,9 +84,10 @@ namespace LaraAbdallah_Homework3.Controllers
             else
             {
                 model.CheckingAccountId = CheckingAccount.Id;
-
                 db.Transactions.Add(model);
                 CheckingAccount.Balance -= model.Amount;
+                model.TransactionDate = DateTime.Now.ToString();
+                model.TansactionSource = "Own Account";
                 db.SaveChanges();
             }
             return View();
@@ -90,8 +95,7 @@ namespace LaraAbdallah_Homework3.Controllers
 
         public ActionResult print()
         {
-            var list = db.Transactions.ToList();
-            return View();
+            return View(db.Transactions.ToList());
         }
 
     }

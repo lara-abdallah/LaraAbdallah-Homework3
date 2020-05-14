@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LaraAbdallah_Homework3.Models;
+using LaraAbdallah_Homework3.Services;
 
 namespace LaraAbdallah_Homework3.Controllers
 {
@@ -157,16 +158,8 @@ namespace LaraAbdallah_Homework3.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    CheckingAccount myAccount = new CheckingAccount()
-                    {
-                        FirstName = model.FirstName,
-                        LastName = model.LastName,
-                        Balance = 0,
-                        AccountNumber = "0000123456",
-                        ApplicationUserId= user.Id
-                    };
-                    db.CheckingAccounts.Add(myAccount);
-                    db.SaveChanges();
+                    var service = new CheckingAccountServices(HttpContext.GetOwinContext().Get<ApplicationDbContext>());
+                    service.CreateCheckingAccount(model.FirstName, model.LastName, user.Id, 100);
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
