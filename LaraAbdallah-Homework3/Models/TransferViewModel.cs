@@ -13,8 +13,11 @@ namespace LaraAbdallah_Homework3.Models
         public decimal Amount { get; set; }
 
         [Required]
-        [Display(Name="To Account #")]
+        [Display(Name = "To Account #")]
         public string ToAccount { get; set; }
+        [Required]
+        [Display(Name = " Account #")]
+        public string FromAccount { get; set; }
         public virtual CheckingAccount CheckingAccount { get; set; }
         [Required]
         public int CheckingAccountId { get; set; }

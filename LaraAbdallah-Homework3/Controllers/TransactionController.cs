@@ -1,4 +1,5 @@
 ﻿using LaraAbdallah_Homework3.Models;
+using LaraAbdallah_Homework3.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,9 @@ namespace LaraAbdallah_Homework3.Controllers
                 CheckingAccount.Balance -= 100;
                 Transaction t = new Transaction();
                 t.CheckingAccountId = CheckingAccount.Id;
-                t.Amount = -100;
+                t.Amount = 100;
+                t.TransactionDate = DateTime.Now.ToString();
+                t.TansactionSource = "Own Account";
                 db.Transactions.Add(t);
                 db.SaveChanges();
                 ViewBag.Message = "Quick Cash is Successful, 100$ is reduced from your balance";
@@ -97,6 +100,42 @@ namespace LaraAbdallah_Homework3.Controllers
         {
             return View(db.Transactions.ToList());
         }
+
+        public ActionResult Transfer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Transfer(TransferViewModel transfer)
+        {
+            var sourceCheckingAccount = db.CheckingAccounts.Find(transfer.CheckingAccountId);
+            if (sourceCheckingAccount.Balance < transfer.Amount)
+            {
+                ModelState.AddModelError("Amount", "You have insufficient funds!");
+            }
+
+            var destinationCheckingAccount = db.CheckingAccounts.Where(c => c.AccountNumber == transfer.FromAccount).FirstOrDefault();
+            if (destinationCheckingAccount == null)
+            {
+                ModelState.AddModelError("TransactionSource", "Invalid destination account number.");
+            }
+
+            if (ModelState.IsValid)
+            {
+                db.Transactions.Add(new Transaction { CheckingAccountId = transfer.CheckingAccountId, Amount = -transfer.Amount });
+                db.Transactions.Add(new Transaction { CheckingAccountId = destinationCheckingAccount.Id, Amount = transfer.Amount });
+                db.SaveChanges();
+
+                var service = new CheckingAccountServices(db);
+                service.UpdateBalance(transfer.CheckingAccountId);
+                service.UpdateBalance(destinationCheckingAccount.Id);
+
+                return PartialView("_TransferSuccess", transfer);
+            }
+            return PartialView("_TransferForm");
+        }
+
 
     }
 }

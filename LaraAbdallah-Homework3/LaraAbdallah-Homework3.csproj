@@ -187,18 +187,6 @@
     <Compile Include="Migrations\202005131244451_InitialMigration2.Designer.cs">
       <DependentUpon>202005131244451_InitialMigration2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005131246518_InitialMigration3.cs" />
-    <Compile Include="Migrations\202005131246518_InitialMigration3.Designer.cs">
-      <DependentUpon>202005131246518_InitialMigration3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005131331298_AddDatetime.cs" />
-    <Compile Include="Migrations\202005131331298_AddDatetime.Designer.cs">
-      <DependentUpon>202005131331298_AddDatetime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005132206092_AddTransactionsource.cs" />
-    <Compile Include="Migrations\202005132206092_AddTransactionsource.Designer.cs">
-      <DependentUpon>202005132206092_AddTransactionsource.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckingAccount.cs" />
@@ -450,6 +438,10 @@
     <Content Include="Views\Transaction\Deposit.cshtml" />
     <Content Include="Views\Transaction\Withdrawal.cshtml" />
     <Content Include="Views\Transaction\print.cshtml" />
+    <Content Include="Views\Transaction\_TransferForm.cshtml" />
+    <Content Include="Views\Transaction\Transfer.cshtml" />
+    <Content Include="Views\Transaction\_TransferSuccess.cshtml" />
+    <Content Include="Views\Home\_ContactThanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -476,15 +468,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005131244451_InitialMigration2.resx">
       <DependentUpon>202005131244451_InitialMigration2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005131246518_InitialMigration3.resx">
-      <DependentUpon>202005131246518_InitialMigration3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005131331298_AddDatetime.resx">
-      <DependentUpon>202005131331298_AddDatetime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005132206092_AddTransactionsource.resx">
-      <DependentUpon>202005132206092_AddTransactionsource.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
