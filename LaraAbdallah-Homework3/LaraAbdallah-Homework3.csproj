@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202005131244451_InitialMigration2.Designer.cs">
       <DependentUpon>202005131244451_InitialMigration2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005131246518_InitialMigration3.cs" />
+    <Compile Include="Migrations\202005131246518_InitialMigration3.Designer.cs">
+      <DependentUpon>202005131246518_InitialMigration3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckingAccount.cs" />
@@ -468,6 +472,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005131244451_InitialMigration2.resx">
       <DependentUpon>202005131244451_InitialMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005131246518_InitialMigration3.resx">
+      <DependentUpon>202005131246518_InitialMigration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005131331298_AddDatetime.resx">
+      <DependentUpon>202005131331298_AddDatetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005132206092_AddTransactionsource.resx">
+      <DependentUpon>202005132206092_AddTransactionsource.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
